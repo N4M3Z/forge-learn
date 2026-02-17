@@ -1,11 +1,11 @@
 ---
-name: GenerateTOC
-description: "Generate a hierarchical table of contents from any document. USE WHEN table of contents, toc, document structure, outline."
+name: GenerateOutline
+description: "Generate a hierarchical outline from any document. USE WHEN outline, table of contents, toc, document structure, sections."
 ---
 
-# GenerateTOC
+# GenerateOutline
 
-The user wants a table of contents generated from their document. They may paste a full document, a long article, a report, or any structured text with headings.
+The user wants an outline generated from their document. They may paste a full document, a long article, a report, or any structured text with headings.
 
 ## Instructions
 

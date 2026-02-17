@@ -26,7 +26,7 @@ modules/       ← Optional add-ons (empty for now)
 
 ## Quick Start
 
-**What you need first**: [Git](https://git-scm.com/downloads), [Node.js](https://nodejs.org/) (LTS version), and any text editor. See [INSTALL.md](INSTALL.md) for step-by-step instructions if you haven't installed these yet.
+**What you need first**: [Git](https://git-scm.com/downloads) and [Claude Code](https://docs.anthropic.com/en/docs/claude-code). See [INSTALL.md](INSTALL.md) for step-by-step instructions if you haven't installed these yet.
 
 1. **Download this project.** Open a terminal (Mac: Terminal app, Windows: PowerShell) and paste:
    ```
@@ -65,7 +65,7 @@ That's it. You're set up.
 | `/Emojify` | Adds context-appropriate emojis at natural break points |
 | `/CleanText` | Strips URLs, HTML tags, and other noise from text |
 | `/GenerateGlossary` | Creates an alphabetical glossary of key terms |
-| `/GenerateTOC` | Generates a table of contents from any document |
+| `/GenerateOutline` | Generates a hierarchical outline from any document |
 | `/RewriteAsTweet` | Rewrites content as a tweet or tweet thread |
 
 ## Learning Path
@@ -106,9 +106,9 @@ Once you're comfortable, you can expand your setup with optional modules. See [I
 ## Requirements
 
 - [Git](https://git-scm.com/downloads) — to download and manage this repository
-- [Node.js](https://nodejs.org/) (LTS version) — required by Claude Code
-- [Claude Code](https://claude.ai/code) — the AI tool that reads these files
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) — the AI tool that reads these files (native binary, no Node.js needed)
 - A text editor — anything works (VS Code, Notepad, TextEdit, Sublime, vim)
+- **Windows**: Works natively on Windows 10+. See [INSTALL.md](INSTALL.md) for setup details.
 
 ## License
 

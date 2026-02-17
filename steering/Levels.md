@@ -34,7 +34,7 @@ Edit your identity files so the AI adapts to you.
 
 Use the AI to understand files and save your work with git.
 
-**Skills**: /GitHelp, /GenerateTOC
+**Skills**: /GitHelp, /GenerateOutline
 
 > **Privacy tip**: Your `steering/` files contain personal info (name, goals). If you push to a public repository, this becomes visible. Consider keeping your fork private or reviewing these files before pushing.
 
@@ -58,13 +58,15 @@ Go from "I want to build X" to a working project.
 
 ## Level 5: Steer — Control AI behavior with files
 
-You already edited Identity.md to change how the AI talks to you. Now write custom rules and even your own skills.
+You already edited Identity.md to change how the AI talks to you. Now write custom rules, skills, and tune agents.
+
+A skill tells the AI what to do. An agent tells the AI who to be — a character it stays in for the whole conversation. Look at `.claude/agents/CodeHelper.md` to see how one works.
 
 **Skills**: /Progress (to track your journey)
 
 - [ ] Created a custom rule file in steering/ (e.g., `steering/MyRules.md` with "always use British spelling")
+- [ ] Edited the starter agent in `.claude/agents/` (change its persona, or create a new one for something you need)
 - [ ] Created your own skill in skills/ (a SKILL.md file — look at existing skills for the pattern)
-- [ ] Tested that your rule or skill changes AI behavior
 
 ---
 
