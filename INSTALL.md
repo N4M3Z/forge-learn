@@ -1,113 +1,59 @@
-# Installation
+# Install
 
-## Prerequisites
+Instructions for the AI agent. When the user asks to set up forge-user or troubleshoot their installation, follow these steps.
 
-You need two things:
+## Prerequisites Check
 
-1. **Git** — downloads and tracks your files
-   - **Mac**: Open Terminal (find it in Applications > Utilities), type `git --version`. If it's not installed, macOS will prompt you to install it.
-   - **Windows**: Download from [git-scm.com](https://git-scm.com/downloads/win). During setup, keep all defaults — this also installs Git Bash, which Claude Code uses.
-   - **Linux**: `sudo apt install git` (Ubuntu/Debian) or `sudo dnf install git` (Fedora)
+Before setup, verify the user has what they need:
 
-2. **An AI coding tool** — the engine that reads your files
+1. **Git**: Run `git --version`. If missing, guide them:
+   - Mac: "macOS will prompt you to install developer tools — say yes"
+   - Windows: "Download Git from git-scm.com/downloads/win — keep all defaults during setup"
+   - Linux: `sudo apt install git` or `sudo dnf install git`
 
-### Installing Claude Code
+2. **Claude Code** (or compatible tool): The user is already running it if they're talking to you. If they're setting up for the first time, recommend the native installer:
+   - Mac/Linux: `curl -fsSL https://claude.ai/install.sh | bash`
+   - Windows PowerShell: `irm https://claude.ai/install.ps1 | iex`
+   - Mac Homebrew: `brew install --cask claude-code`
+   - Windows WinGet: `winget install Anthropic.ClaudeCode`
+   - No Node.js or npm needed — Claude Code is a native binary.
 
-Claude Code is a native binary — no Node.js, no package manager needed.
+## First-Time Setup
 
-**Mac / Linux:**
-```bash
-curl -fsSL https://claude.ai/install.sh | bash
-```
+If the user just cloned the repo and is starting for the first time:
 
-**Windows (PowerShell):**
-```powershell
-irm https://claude.ai/install.ps1 | iex
-```
+1. Check if `steering/Identity.md` still has placeholder values (`Your Name`, `beginner`, etc.). If so, ask the user for their name and preferences, then update the file for them.
 
-**Windows (CMD):**
-```batch
-curl -fsSL https://claude.ai/install.cmd -o install.cmd && install.cmd && del install.cmd
-```
+2. Check if `steering/Goals.md` still has the example goals. If so, ask what they're working toward and update it.
 
-**Mac (Homebrew):**
-```bash
-brew install --cask claude-code
-```
+3. Run `/Tour` to introduce them to the setup.
 
-**Windows (WinGet):**
-```powershell
-winget install Anthropic.ClaudeCode
-```
+## Module Installation
 
-See the [Claude Code setup docs](https://docs.anthropic.com/en/docs/claude-code) for more options.
+When the user wants to install a module from `modules/`:
 
-### Windows without WSL
+1. The module is a separate repository cloned into `modules/`. It may have its own `.claude-plugin/plugin.json` or skills directory.
 
-Claude Code runs natively on Windows 10 (1809+) and Windows Server 2019+. You need [Git for Windows](https://git-scm.com/downloads/win) installed — Claude Code uses Git Bash for shell operations.
+2. Read the module's README for setup instructions. Some modules are standalone Claude Code plugins that need to be registered separately.
 
-If you prefer a Unix-like environment, [WSL 2](https://learn.microsoft.com/en-us/windows/wsl/install) works well. Install WSL, then follow the Mac/Linux instructions inside your WSL terminal.
+3. forge-user's `plugin.json` only discovers skills from `./skills` — module skills are NOT auto-discovered. If the module has skills the user wants available as slash commands, explain that they need to either:
+   - Run the module as a separate Claude Code plugin
+   - Copy specific skills into `skills/` (not recommended — breaks updates)
+   - Upgrade to [forge-core](https://github.com/N4M3Z/forge-core) for automated module dispatch
 
-### Alternative tools
-
-forge-user works with any AI coding tool that reads `CLAUDE.md` and discovers skills from `.claude-plugin/plugin.json`. If Claude Code isn't available on your platform:
-
-| Tool | Install | Notes |
-|------|---------|-------|
-| [OpenCode](https://opencode.ai) | `curl -fsSL https://opencode.ai/install \| bash` | Open-source, 75+ LLM providers, native Windows/Mac/Linux |
-| [Codex CLI](https://github.com/openai/codex) | See GitHub README | OpenAI's equivalent |
-
-## Setup
-
-These instructions assume you have a terminal open (Mac: Terminal app, Windows: PowerShell or Git Bash).
-
-```bash
-# 1. Download the project
-git clone https://github.com/N4M3Z/forge-user.git
-cd forge-user
-
-# 2. Open steering/Identity.md in your editor and change "Your Name" to yours
-
-# 3. Start Claude Code from inside this directory
-claude
-
-# 4. Type /Tour to see what you have
-```
-
-**What "clone" means**: `git clone` copies the project from GitHub to your computer. You'll get a directory called `forge-user` with all the files in it. `cd forge-user` moves into that directory.
-
-## Verify Your Setup
-
-After starting Claude Code, follow the checks in [VERIFY.md](VERIFY.md) to confirm everything works.
-
-## Optional Modules
-
-Once you're comfortable with the basics, you can add modules to expand your AI's capabilities. Modules are independent repositories you clone into the `modules/` directory.
-
-### Recommended Modules
+## Recommended Modules
 
 | Module | What it adds |
 |--------|-------------|
-| [forge-council](https://github.com/N4M3Z/forge-council) | Multi-specialist code review — your AI convenes a panel of experts to debate changes |
+| [forge-council](https://github.com/N4M3Z/forge-council) | Multi-specialist code review — convenes a panel of experts to debate changes |
 | [forge-avatar](https://github.com/N4M3Z/forge-avatar) | Deep identity — digital avatar, beliefs, strategies, communication preferences |
 | [forge-steering](https://github.com/N4M3Z/forge-steering) | Behavioral rules — teach your AI what to do and what to avoid |
 
-### Installing a Module
-
-```bash
-# From your forge-user directory:
-cd modules
-git clone https://github.com/N4M3Z/forge-council.git
-```
-
-After cloning a module, ask your AI to install it for you:
-
-> "I cloned forge-council into modules/. Can you help me set it up?"
-
-Your AI will read the module's README and walk you through any setup steps. Some modules are standalone Claude Code plugins — check each module's README for instructions.
-
-For automated module management (hook-based dispatch, skill discovery across modules), see [forge-core](https://github.com/N4M3Z/forge-core) below.
-
 ## Upgrading to forge-core
 
-If you outgrow forge-user and want the full developer framework (hook system, automated dispatching, Rust-powered tools, multi-vault support), see [forge-core](https://github.com/N4M3Z/forge-core). forge-user skills and steering files are compatible — you can migrate without starting over.
+If the user outgrows forge-user (wants hooks, automated dispatching, Rust-powered tools, multi-vault support), point them to [forge-core](https://github.com/N4M3Z/forge-core). Their steering files and skills are compatible — migration doesn't require starting over.
+
+## Platform Notes
+
+- **Windows**: Claude Code runs natively on Windows 10 (1809+). Requires [Git for Windows](https://git-scm.com/downloads/win) for shell operations. WSL 2 also works.
+- **Alternative tools**: forge-user works with any tool that reads `CLAUDE.md` and discovers skills from `.claude-plugin/plugin.json`. [OpenCode](https://opencode.ai) and [Codex CLI](https://github.com/openai/codex) are compatible alternatives.
