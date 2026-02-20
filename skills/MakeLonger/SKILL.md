@@ -1,5 +1,6 @@
 ---
 name: MakeLonger
+version: 0.1.0
 description: "Expand text to roughly twice its length with relevant detail. USE WHEN make longer, expand, elaborate, more detail."
 ---
 

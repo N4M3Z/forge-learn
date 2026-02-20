@@ -1,0 +1,5 @@
+name: Translate
+description: "Translate text into a target language while preserving meaning and tone. USE WHEN translate, translation, language."
+
+claude:
+    argument-hint: "[target language]"

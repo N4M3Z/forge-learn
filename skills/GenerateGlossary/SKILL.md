@@ -1,5 +1,6 @@
 ---
 name: GenerateGlossary
+version: 0.1.0
 description: "Create an alphabetical glossary of key terms from any content. USE WHEN glossary, define terms, key terms, terminology."
 ---
 

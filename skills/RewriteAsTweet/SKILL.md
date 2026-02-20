@@ -1,5 +1,6 @@
 ---
 name: RewriteAsTweet
+version: 0.1.0
 description: "Rewrite content as a single tweet or tweet thread. USE WHEN tweet, rewrite as tweet, social media, twitter, x post."
 ---
 

@@ -1,0 +1,5 @@
+name: HighImpactChanges
+description: "Review a document or set of documents and propose exactly 10 high-impact changes. USE WHEN review, improve, polish, final pass, high impact, what should I fix."
+
+claude:
+    argument-hint: "[document path or description] [audience context]"

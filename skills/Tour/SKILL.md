@@ -1,5 +1,6 @@
 ---
 name: Tour
+version: 0.1.0
 description: "Walk through your setup — what you have, what each directory does, and how to get started. USE WHEN tour, show me around, what is this, getting started, help."
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: FixGrammar
+version: 0.1.0
 description: "Fix grammar and spelling while preserving formatting and content. USE WHEN fix grammar, proofread, spelling, correct text."
 ---
 

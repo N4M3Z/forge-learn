@@ -1,3 +1,4 @@
 *.md text eol=lf
 *.yaml text eol=lf
 *.json text eol=lf
+Makefile text eol=lf

@@ -12,7 +12,7 @@ CLAUDE.md                     — AI ground rules
 steering/Identity.md          — user identity
 steering/Goals.md             — user goals
 steering/Levels.md            — progression tracking
-skills/*/SKILL.md             — at least 17 skill files
+skills/*/SKILL.md             — at least 19 skill files
 ```
 
 If `.claude-plugin/plugin.json` is missing, the plugin won't load. Recreate it:
@@ -36,9 +36,9 @@ Read `steering/Goals.md`. If it still has the example goals ("Learn to build a p
 
 ## Check 4: Skills Discovery
 
-List the contents of `skills/`. There should be 17 skill directories, each containing a `SKILL.md`. If any are missing, report which ones.
+List the contents of `skills/`. There should be 19 skill directories, each containing a `SKILL.md`. If any are missing, report which ones.
 
-Expected skills: CleanText, Emojify, Explain, ExplainSimply, FixGrammar, FixIt, GenerateGlossary, GenerateOutline, GitHelp, Kickstart, MakeLonger, MakeShorter, Progress, RewriteAsTweet, Summarize, Tour, Translate.
+Expected skills: CleanText, Emojify, Explain, ExplainSimply, FixGrammar, FixIt, GenerateGlossary, GenerateOutline, GitHelp, HighImpactChanges, Kickstart, MakeLonger, MakeShorter, Pandoc, Progress, RewriteAsTweet, Summarize, Tour, Translate.
 
 ## Check 5: Agent Available
 

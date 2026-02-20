@@ -1,5 +1,6 @@
 ---
 name: Explain
+version: 0.1.0
 description: "Explain any file, error message, or concept in plain language. USE WHEN explain, what is, what does, how does, break down, help me understand."
 ---
 

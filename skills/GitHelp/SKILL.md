@@ -1,5 +1,6 @@
 ---
 name: GitHelp
+version: 0.1.0
 description: "Translate plain English into git commands with explanations. USE WHEN git, save my work, undo, commit, push, branch, merge, what changed."
 ---
 

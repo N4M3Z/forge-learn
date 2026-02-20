@@ -1,0 +1,5 @@
+name: Pandoc
+description: "Render markdown documents to PDF via pandoc. USE WHEN pdf, render, export, pandoc, print, document."
+
+claude:
+    argument-hint: "[file path] [options: --strip-frontmatter, --engine=typst|xelatex|pdflatex]"

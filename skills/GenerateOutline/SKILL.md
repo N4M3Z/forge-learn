@@ -1,5 +1,6 @@
 ---
 name: GenerateOutline
+version: 0.1.0
 description: "Generate a hierarchical outline from any document. USE WHEN outline, table of contents, toc, document structure, sections."
 ---
 

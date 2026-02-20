@@ -1,5 +1,6 @@
 ---
 name: CleanText
+version: 0.1.0
 description: "Strip URLs, HTML tags, extra whitespace, and other noise from text. USE WHEN clean text, remove urls, strip links, strip html, clean up, remove noise."
 ---
 

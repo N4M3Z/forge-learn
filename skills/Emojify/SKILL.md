@@ -1,5 +1,6 @@
 ---
 name: Emojify
+version: 0.1.0
 description: "Add context-appropriate emojis to text at natural break points. USE WHEN emojify, add emojis, emoji text."
 ---
 

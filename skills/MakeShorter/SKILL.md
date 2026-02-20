@@ -1,5 +1,6 @@
 ---
 name: MakeShorter
+version: 0.1.0
 description: "Reduce text to half its length while preserving meaning. USE WHEN make shorter, condense, shorten, cut down, trim."
 ---
 

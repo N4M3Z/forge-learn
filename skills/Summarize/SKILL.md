@@ -1,5 +1,6 @@
 ---
 name: Summarize
+version: 0.1.0
 description: "Extract key points from any content into a structured summary. USE WHEN summarize, key points, tldr, digest."
 ---
 

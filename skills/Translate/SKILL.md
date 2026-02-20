@@ -1,7 +1,7 @@
 ---
 name: Translate
+version: 0.1.0
 description: "Translate text into a target language while preserving meaning and tone. USE WHEN translate, translation, language."
-argument-hint: "[target language]"
 ---
 
 # Translate

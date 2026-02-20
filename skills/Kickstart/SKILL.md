@@ -1,5 +1,6 @@
 ---
 name: Kickstart
+version: 0.1.0
 description: "Describe what you want to build and get a project plan with starting structure. USE WHEN kickstart, start a project, build something, new project, I want to make."
 ---
 

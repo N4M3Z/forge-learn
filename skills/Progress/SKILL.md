@@ -1,5 +1,6 @@
 ---
 name: Progress
+version: 0.1.0
 description: "Show your current level, what you've unlocked, and what to try next. USE WHEN progress, level, what's next, what should I do, where am I."
 ---
 

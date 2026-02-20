@@ -1,5 +1,6 @@
 ---
 name: FixIt
+version: 0.1.0
 description: "Diagnose what went wrong, explain it in plain language, and propose a fix. USE WHEN fix, broken, not working, error, debug, something went wrong."
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: ExplainSimply
+version: 0.1.0
 description: "Explain complex content in simple, accessible language. USE WHEN explain simply, simplify, eli5, plain language, dumb it down."
 ---
 
