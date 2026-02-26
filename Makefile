@@ -1,8 +1,5 @@
 # forge-learn Makefile
 
-AGENTS   = CodeHelper
-# Universal skills (deployed to all providers). Progress is Claude-only — see defaults.yaml.
-SKILLS   = Explain FixIt GitHelp Kickstart Summarize Tour
 AGENT_SRC = agents
 SKILL_SRC = skills
 LIB_DIR  = $(or $(FORGE_LIB),lib)
