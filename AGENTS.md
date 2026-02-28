@@ -90,6 +90,7 @@ install-forge-learn:
 
 - **Skill naming**: PascalCase directories (`FixIt/`), matching `name:` in SKILL.md frontmatter
 - **Agent naming**: PascalCase filenames (`CodeHelper.md`), matching `name:` in frontmatter
+  - Note: Gemini agents and skills are automatically slugified (e.g. `code-helper.md`) during deployment.
 - **Config override**: `config.yaml` (gitignored) overrides `defaults.yaml`
 - **forge-lib**: Consumed as git submodule at `lib/`, provides `install-skills`, `install-agents`, and `validate-module`
 

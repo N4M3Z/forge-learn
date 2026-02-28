@@ -77,3 +77,27 @@ install-forge-learn:
 - **Agent naming**: PascalCase filenames matching `name:` in frontmatter
 - **Provider routing**: provider-keyed allowlists in `defaults.yaml` control which platforms receive each skill
 - **forge-lib**: git submodule at `lib/`, provides `install-skills`, `install-agents`, and `validate-module` Rust binaries
+
+## Gemini Specifics
+
+### Tool Mapping
+When deploying agents, generic Forge tool names are automatically mapped to Gemini-specific tool names:
+
+| Forge Tool | Gemini Tool |
+| :--- | :--- |
+| `Read` | `read_file` |
+| `Write` | `write_file` |
+| `Edit` | `replace` |
+| `Grep` | `grep_search` |
+| `Bash` | `run_shell_command` |
+| `Glob` | `glob` |
+
+### Convention Enforcement
+- **Naming**: All Gemini agents and skills are slugified (kebab-case). `CodeHelper` becomes `code-helper`.
+- **Validation**: `make test` (via `validate-module`) ensures that Gemini-specific formatting and tool mappings are correct.
+
+### Model Configuration
+Gemini uses tiers defined in `defaults.yaml`:
+- `fast`: defaults to `gemini-2.0-flash`
+- `strong`: defaults to `gemini-2.5-pro`
+You can override these in your local `config.yaml`.
