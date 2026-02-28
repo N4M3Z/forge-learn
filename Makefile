@@ -9,7 +9,7 @@ INSTALL_AGENTS  ?= $(LIB_DIR)/bin/install-agents
 INSTALL_SKILLS  ?= $(LIB_DIR)/bin/install-skills
 VALIDATE_MODULE ?= $(LIB_DIR)/bin/validate-module
 
-.PHONY: help install clean verify test lint check init
+.PHONY: help install clean verify test lint check init check-lib
 
 help:
 	@echo "forge-learn management commands:"
@@ -37,7 +37,16 @@ ifneq ($(wildcard $(LIB_DIR)/mk/common.mk),)
   include $(LIB_DIR)/mk/lint.mk
 endif
 
-install: install-agents install-skills
+check-lib:
+	@if [ ! -f "$(LIB_DIR)/Cargo.toml" ]; then \
+	  echo ""; \
+	  echo "ERROR: forge-lib submodule is not initialized."; \
+	  echo "Run: make init && make install"; \
+	  echo ""; \
+	  exit 1; \
+	fi
+
+install: check-lib install-agents install-skills
 	@echo "Installation complete. Restart your session or reload agents/skills."
 
 clean: clean-agents clean-skills

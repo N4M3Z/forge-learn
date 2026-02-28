@@ -70,20 +70,22 @@ A skill tells the AI what to do. An agent tells the AI who to be — a character
 
 ---
 
-## Level 6: Connect — Expand with modules
+## Level 6: Connect — Install forge-core and build artifacts
 
-Install optional forge modules to give your AI new capabilities.
+forge-core is the developer toolkit — skills for building skills, agents, and modules. Installing it gives you `/BuildSkill`, `/BuildAgent`, `/BuildModule`, and `/BuildHook`.
 
-- [ ] Installed forge-text: `git clone https://github.com/N4M3Z/forge-text.git modules/forge-text`
-- [ ] Ran `make install` in forge-text and used a skill from it
-- [ ] Installed a second module (try forge-council, forge-avatar, or forge-steering)
+- [ ] Installed forge-core: `git clone --recurse-submodules https://github.com/N4M3Z/forge-core.git modules/forge-core`
+- [ ] Ran `make install` in forge-core and used `/BuildSkill` to scaffold a new skill
+- [ ] Installed a second module (try forge-text, forge-council, forge-avatar, or forge-steering)
 
 ---
 
-## Level 7: Forge — Enhance the ecosystem
+## Level 7: Forge — Contribute to the ecosystem
 
-Everything you've learned comes together. Improve a module that others use.
+Everything you've learned comes together. Contribute an improvement that others can use.
 
-- [ ] Read an existing module's source code and understood its skills
-- [ ] Identified an improvement — better wording, a missing edge case, a new skill idea
-- [ ] Shared your enhancement with the module author (PR, issue, or direct message)
+Read `modules/forge-core/CONTRIBUTING.md` for the full workflow — fork, branch, validate, PR.
+
+- [ ] Read forge-core's CONTRIBUTING.md and understood the contribution flow
+- [ ] Created a skill, agent, or improvement on a branch (`make test && make lint` passes)
+- [ ] Opened a PR (or issue) on [forge-core](https://github.com/N4M3Z/forge-core)

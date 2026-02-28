@@ -56,14 +56,14 @@ Based on the current level, suggest ONE specific action. Be opinionated — name
 - "Look at any skill in `skills/` — open the SKILL.md file. The format is simple: YAML header with name + description, then markdown instructions. Try writing your own in `skills/MySkill/SKILL.md`."
 
 **Level 6 suggestions:**
-- "Start with forge-text — 12 text processing skills: `git clone https://github.com/N4M3Z/forge-text.git modules/forge-text`. Then run `make install` inside it."
-- "Try a skill from forge-text — `/Translate`, `/FixGrammar`, or `/ExplainSimply` are good first picks."
-- "Install a second module — try forge-council for code review, forge-avatar for deep identity, or forge-steering for behavioral rules."
+- "Start with forge-core — the developer toolkit: `git clone --recurse-submodules https://github.com/N4M3Z/forge-core.git modules/forge-core`. Then run `make install` inside it."
+- "Try `/BuildSkill` from forge-core — it walks you through creating a new skill with the right structure, frontmatter, and sidecar."
+- "Install a second module — try forge-text for text processing, forge-council for code review, forge-avatar for deep identity, or forge-steering for behavioral rules."
 
 **Level 7 suggestions:**
-- "Pick a module you've been using. Read its skills/ directory — each SKILL.md is just instructions you can read and understand."
+- "Read `modules/forge-core/CONTRIBUTING.md` — it maps the full contribution workflow from fork to PR."
 - "Find something to improve. A confusing explanation, a missing edge case, a skill you wish existed. Every module has room to grow."
-- "Share your improvement — open an issue, submit a pull request, or message the author directly."
+- "Create your improvement on a branch, run `make test && make lint` to validate, then open a PR on forge-core."
 
 ### Step 4: Check for Level Completion
 
@@ -80,5 +80,5 @@ If all boxes in the current level appear to be satisfied based on the conversati
 
 - **User at Level 1 with no history**: Welcome them. Suggest running /Explain on any file as the single best starting point.
 - **User skipped levels**: That's fine — levels are guidance, not gates. Acknowledge what they've done and offer to mark completed levels.
-- **All levels complete**: Congratulate them. Mention forge-core as the next frontier: "You've graduated. The developer framework at github.com/N4M3Z/forge-core has hooks, automation, and power tools for everything you've learned here."
+- **All levels complete**: Congratulate them. "You've graduated. You can now build skills, agents, and modules — and contribute them back to forge-core. For the full framework with hooks, vault integration, and module dispatch, see [forge-user](https://github.com/N4M3Z/forge-user)."
 - **User asks to reset**: They can manually edit steering/Levels.md to uncheck boxes.
