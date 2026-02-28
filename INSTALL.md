@@ -27,15 +27,21 @@ Before setup, verify the user has what they need:
 
 ## Build and Deploy
 
-If the user wants to deploy agents and skills to all providers:
+If the user wants to deploy agents and skills to all providers, first ask where they want skills installed:
+
+- **Workspace** (this project only): `make install SCOPE=workspace`
+- **Global** (all projects): `make install SCOPE=user`
+
+Most users want global — skills like `/Explain` and `/GitHelp` are useful everywhere.
+
+For first-time setup, initialize forge-lib before running the install command:
 
 ### POSIX shells (macOS/Linux/WSL/Git Bash)
 
 ```bash
-git submodule update --init lib   # initialize forge-lib (first time only)
-make -C lib build                 # build Rust binaries (first time only)
-make install                      # deploy 1 agent + 7 skills to all providers
-make verify                       # confirm everything deployed
+git submodule update --init lib     # initialize forge-lib (first time only)
+make -C lib build                   # build Rust binaries (first time only)
+make verify                         # confirm everything deployed
 ```
 
 ### Windows PowerShell fallback
