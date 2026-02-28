@@ -10,7 +10,7 @@ Something broke and the user needs help. They may paste an error, describe a sym
 
 ## Instructions
 
-1. Read `steering/Identity.md` to calibrate explanation depth.
+1. Read `rules/Identity.md` to calibrate explanation depth. If the file doesn't exist, tell the user to run `make install` first.
 
 2. **Diagnose**: Identify the error. If the user pasted an error message, parse it. If they described a symptom, ask one clarifying question maximum before investigating.
 

@@ -4,7 +4,7 @@ This file provides instructional context for the Gemini AI agent when working wi
 
 ## Project Overview
 
-**forge-learn** is a learning-focused personal AI setup module for the Forge ecosystem. It provides 7 skills, 1 agent, identity steering files, and a 7-level progression system that teaches users to customize their AI assistant.
+**forge-learn** is a learning-focused personal AI setup module for the Forge ecosystem. It provides 7 skills, 1 agent, identity rules files, and a 7-level progression system that teaches users to customize their AI assistant.
 
 ### Core Responsibilities
 
