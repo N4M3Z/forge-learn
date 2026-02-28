@@ -9,7 +9,7 @@ INSTALL_AGENTS  ?= $(LIB_DIR)/bin/install-agents
 INSTALL_SKILLS  ?= $(LIB_DIR)/bin/install-skills
 VALIDATE_MODULE ?= $(LIB_DIR)/bin/validate-module
 
-.PHONY: help install clean verify test lint check init check-lib
+.PHONY: help install clean verify test lint check init check-lib init-steering verify-steering
 
 help:
 	@echo "forge-learn management commands:"
@@ -46,12 +46,27 @@ check-lib:
 	  exit 1; \
 	fi
 
-install: check-lib install-agents install-skills
+init-steering:
+	@for f in steering/*.md.template; do \
+	  target="$${f%.template}"; \
+	  if [ ! -f "$$target" ]; then \
+	    cp "$$f" "$$target"; \
+	    echo "  created $$target"; \
+	  fi; \
+	done
+
+install: check-lib init-steering install-agents install-skills
 	@echo "Installation complete (SCOPE=$(SCOPE)). Restart your session or reload agents/skills."
 
 clean: clean-agents clean-skills
 
-verify: verify-skills verify-agents
+verify-steering:
+	@test -f steering/Identity.md || (echo "  MISSING steering/Identity.md — run: make install" && exit 1)
+	@test -f steering/Goals.md    || (echo "  MISSING steering/Goals.md — run: make install"    && exit 1)
+	@test -f steering/Levels.md   || (echo "  MISSING steering/Levels.md — run: make install"   && exit 1)
+	@echo "  ok steering"
+
+verify: verify-skills verify-agents verify-steering
 
 test: $(VALIDATE_MODULE)
 	@$(VALIDATE_MODULE) $(CURDIR)

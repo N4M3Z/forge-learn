@@ -10,8 +10,8 @@ The user has an idea for something they want to build. Help them go from "I want
 
 ## Instructions
 
-1. Read `steering/Identity.md` for experience level and preferences.
-2. Read `steering/Goals.md` to see if this project aligns with their goals.
+1. Read `steering/Identity.md` for experience level and preferences. If the file doesn't exist, tell the user to run `make install` first.
+2. Read `steering/Goals.md` to see if this project aligns with their goals. If the file doesn't exist, tell the user to run `make install` first.
 
 3. **Understand the idea**: Ask up to 2 clarifying questions if the request is vague. Focus on: What does it do? Who is it for? What technology (if any preference)?
 

@@ -10,7 +10,7 @@ The user wants a guided walkthrough of their forge-learn setup. Read the directo
 
 ## Instructions
 
-1. Read `steering/Identity.md` and greet the user by name (if they've filled it in). If not, say "I see you haven't set up your identity yet — let's do that after the tour."
+1. Read `steering/Identity.md` and greet the user by name (if they've filled it in). If the file doesn't exist, tell the user to run `make install` first. If it exists but hasn't been personalized, say "I see you haven't set up your identity yet — let's do that after the tour."
 
 2. Explain the three directories:
    - **skills/** — "These are things I can do for you. Each one is a command you can run."

@@ -31,13 +31,13 @@ For tools that don't read `CLAUDE.md`, you can copy the content into their instr
 ## What's Inside
 
 ```
-steering/      <- Who you are and what you care about
+steering/      <- Who you are and what you care about (templates checked in, personal copies gitignored)
 skills/        <- What your AI can do (commands you can run)
 agents/        <- AI personas (e.g., CodeHelper)
 modules/       <- Optional add-ons (empty for now)
 ```
 
-**Steering** is your identity. Open `steering/Identity.md`, change the name to yours, and save. Next session, your AI greets you by name.
+**Steering** is your identity. Run `make install` to generate your personal steering files from templates, then edit `steering/Identity.md` with your name. Next session, your AI greets you by name.
 
 **Skills** are actions. Type `/Tour` and your AI walks you through everything. Type `/Explain` and it breaks down any file or error in plain language.
 
@@ -91,11 +91,11 @@ claude
 
 **Or do it yourself:**
 
-1. Open `steering/Identity.md` in any text editor — change `Your Name` to your actual name and save
-2. Open `steering/Goals.md` — replace the example goals with yours
-3. Deploy agents and skills:
-   - Mac/Linux/WSL/Git Bash: run `make install`
+1. Deploy agents and skills:
+   - Mac/Linux/WSL/Git Bash: run `make install` — this generates your personal steering files from templates and deploys agents and skills
    - Windows PowerShell fallback: run the Windows block in [INSTALL.md](INSTALL.md) (`cargo build --release` + `install-*.exe`)
+2. Open `steering/Identity.md` in any text editor — change `Your Name` to your actual name and save
+3. Open `steering/Goals.md` — replace the example goals with yours
 4. Start Claude Code: `claude`
 5. Type `/Tour`
 
@@ -137,7 +137,7 @@ forge-learn has a 7-level progression from your first skill modification to ecos
 | 6 | Connect | Expand with optional modules |
 | 7 | Forge | Contribute improvements to the ecosystem |
 
-See `steering/Levels.md` for the full roadmap with progress tracking.
+See `steering/Levels.md` for the full roadmap with progress tracking. This file is generated from a template by `make install` — your progress is local and won't be pushed to git.
 
 ## How It Works
 
@@ -153,7 +153,7 @@ You change a file, the AI's behavior changes. That's the entire system.
 
 ## Privacy Note
 
-The `steering/` files are yours to edit with personal information (your name, goals, preferences). If you plan to push this repository to a public GitHub account, be aware that anything you write in these files will be visible. Consider keeping your fork private, or review your steering files before pushing.
+Your personal steering files (`steering/Identity.md`, `Goals.md`, `Levels.md`) are gitignored by default — they won't be pushed to a public repository. Only the `.template` files (with placeholder values) are checked into git. If you add other files to `steering/` (like `MyRules.md`), review them before pushing.
 
 ## Want More?
 

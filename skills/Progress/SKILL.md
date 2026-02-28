@@ -12,7 +12,7 @@ The user wants to see their progression through the forge-learn leveling system.
 
 ### Step 1: Read State
 
-Read `steering/Levels.md`. Count checked (`- [x]`) and unchecked (`- [ ]`) boxes per level. A level is **complete** when all 3 of its checkboxes are checked.
+Read `steering/Levels.md`. If the file doesn't exist, tell the user to run `make install` first. Count checked (`- [x]`) and unchecked (`- [ ]`) boxes per level. A level is **complete** when all 3 of its checkboxes are checked.
 
 Determine the user's **current level**: the lowest level with at least one unchecked box. If all boxes in all levels are checked, the user has completed the progression.
 

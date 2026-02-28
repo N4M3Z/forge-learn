@@ -77,11 +77,13 @@ Select-String -Path .codex\config.toml -Pattern '\[agents\.CodeHelper\]'
 
 If the user just cloned the repo and is starting for the first time:
 
-1. Check if `steering/Identity.md` still has placeholder values (`Your Name`, `beginner`, etc.). If so, ask the user for their name and preferences, then update the file for them.
+1. Run `make install` — this generates personal steering files from templates (if they don't already exist) and deploys agents and skills.
 
-2. Check if `steering/Goals.md` still has the example goals. If so, ask what they're working toward and update it.
+2. Check if `steering/Identity.md` still has placeholder values (`Your Name`, `beginner`, etc.). If so, ask the user for their name and preferences, then update the file for them.
 
-3. Run `/Tour` to introduce them to the setup.
+3. Check if `steering/Goals.md` still has the example goals. If so, ask what they're working toward and update it.
+
+4. Run `/Tour` to introduce them to the setup.
 
 ## Module Installation
 

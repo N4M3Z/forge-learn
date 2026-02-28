@@ -36,7 +36,7 @@ Use the AI to understand files and save your work with git.
 
 **Skills**: /GitHelp
 
-> **Privacy tip**: Your `steering/` files contain personal info (name, goals). If you push to a public repository, this becomes visible. Consider keeping your fork private or reviewing these files before pushing.
+> **Privacy note**: Your personal `steering/` files (Identity.md, Goals.md, Levels.md) are gitignored — they won't be pushed to a public repository. The checked-in `.template` files contain only placeholder values.
 
 > **Tip**: Skills are installed per-project by default. To use `/Explain`, `/GitHelp`, and others in *any* project, install globally: `make install SCOPE=user`. Skills will then be available wherever you run Claude Code.
 
