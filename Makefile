@@ -46,19 +46,8 @@ check-lib:
 	  exit 1; \
 	fi
 
-install: check-lib
-	@if [ "$(origin SCOPE)" = "command line" ]; then \
-	  $(MAKE) install-agents install-skills; \
-	else \
-	  printf "\nInstall skills for:\n  [1] This project only (workspace)\n  [2] All projects — use skills in any directory (user)\nChoice [1/2]: "; \
-	  read choice; \
-	  if [ "$$choice" = "2" ]; then \
-	    $(MAKE) SCOPE=user install-agents install-skills; \
-	  else \
-	    $(MAKE) SCOPE=workspace install-agents install-skills; \
-	  fi; \
-	fi
-	@echo "Installation complete. Restart your session or reload agents/skills."
+install: check-lib install-agents install-skills
+	@echo "Installation complete (SCOPE=$(SCOPE)). Restart your session or reload agents/skills."
 
 clean: clean-agents clean-skills
 
