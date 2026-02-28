@@ -9,9 +9,9 @@ Verify the expected files exist:
 ```
 .claude-plugin/plugin.json    -- plugin manifest (skills discovery)
 CLAUDE.md                     -- AI ground rules
-steering/Identity.md          -- user identity
-steering/Goals.md             -- user goals
-steering/Levels.md            -- progression tracking
+rules/Identity.md             -- user identity
+rules/Goals.md                -- user goals
+rules/Levels.md               -- progression tracking
 skills/*/SKILL.md             -- at least 7 skill files
 ```
 
@@ -28,11 +28,11 @@ If `.claude-plugin/plugin.json` is missing, the plugin won't load. Recreate it:
 
 ## Check 2: Identity Personalized
 
-Read `steering/Identity.md`. If the name field still says `Your Name`, the user hasn't personalized it yet. Ask them for their name and preferences, then update the file.
+Read `rules/Identity.md`. If the name field still says `Your Name`, the user hasn't personalized it yet. Ask them for their name and preferences, then update the file.
 
 ## Check 3: Goals Set
 
-Read `steering/Goals.md`. If it still has the example goals ("Learn to build a personal website", etc.), prompt the user to replace them with their actual goals.
+Read `rules/Goals.md`. If it still has the example goals ("Learn to build a personal website", etc.), prompt the user to replace them with their actual goals.
 
 ## Check 4: Skills Discovery
 

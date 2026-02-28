@@ -10,7 +10,7 @@ The user wants something explained in plain language. They may point to a file, 
 
 ## Instructions
 
-1. Read `steering/Identity.md` to understand the user's experience level. If the file doesn't exist, tell the user to run `make install` first.
+1. Read `rules/Identity.md` to understand the user's experience level. If the file doesn't exist, tell the user to run `make install` first.
 
 2. Adjust your explanation to match their level:
    - **beginner**: No jargon. Use analogies. "Think of it like..."

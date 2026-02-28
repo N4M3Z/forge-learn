@@ -15,10 +15,10 @@ node_modules/
 # User overrides
 config.yaml
 
-# Personal steering files (generated from templates by make install)
-steering/Identity.md
-steering/Goals.md
-steering/Levels.md
+# Personal rules files (generated from templates by make install)
+rules/Identity.md
+rules/Goals.md
+rules/Levels.md
 
 # Build artifacts (forge-lib submodule)
 lib/target/

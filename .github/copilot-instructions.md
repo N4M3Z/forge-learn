@@ -6,7 +6,7 @@ forge-learn is a learning-focused personal AI setup module. It provides 7 skills
 
 - `skills/` -- 7 skill directories, each with SKILL.md (instructions) and SKILL.yaml (sidecar metadata)
 - `agents/` -- Agent source files (CodeHelper.md)
-- `steering/` -- User identity (Identity.md), goals (Goals.md), progression (Levels.md)
+- `rules/` -- User identity (Identity.md), goals (Goals.md), progression (Levels.md)
 - `defaults.yaml` -- Skill roster, agent config, provider model mapping
 - `lib/` -- forge-lib git submodule (Rust binaries for deployment)
 

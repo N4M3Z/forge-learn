@@ -9,7 +9,7 @@ INSTALL_AGENTS  ?= $(LIB_DIR)/bin/install-agents
 INSTALL_SKILLS  ?= $(LIB_DIR)/bin/install-skills
 VALIDATE_MODULE ?= $(LIB_DIR)/bin/validate-module
 
-.PHONY: help install clean verify test lint check init check-lib init-steering verify-steering
+.PHONY: help install clean verify test lint check init check-lib init-rules verify-rules
 
 help:
 	@echo "forge-learn management commands:"
@@ -46,8 +46,8 @@ check-lib:
 	  exit 1; \
 	fi
 
-init-steering:
-	@for f in steering/*.md.template; do \
+init-rules:
+	@for f in rules/*.md.template; do \
 	  target="$${f%.template}"; \
 	  if [ ! -f "$$target" ]; then \
 	    cp "$$f" "$$target"; \
@@ -55,18 +55,18 @@ init-steering:
 	  fi; \
 	done
 
-install: check-lib init-steering install-agents install-skills
+install: check-lib init-rules install-agents install-skills
 	@echo "Installation complete (SCOPE=$(SCOPE)). Restart your session or reload agents/skills."
 
 clean: clean-agents clean-skills
 
-verify-steering:
-	@test -f steering/Identity.md || (echo "  MISSING steering/Identity.md — run: make install" && exit 1)
-	@test -f steering/Goals.md    || (echo "  MISSING steering/Goals.md — run: make install"    && exit 1)
-	@test -f steering/Levels.md   || (echo "  MISSING steering/Levels.md — run: make install"   && exit 1)
-	@echo "  ok steering"
+verify-rules:
+	@test -f rules/Identity.md || (echo "  MISSING rules/Identity.md — run: make install" && exit 1)
+	@test -f rules/Goals.md    || (echo "  MISSING rules/Goals.md — run: make install"    && exit 1)
+	@test -f rules/Levels.md   || (echo "  MISSING rules/Levels.md — run: make install"   && exit 1)
+	@echo "  ok rules"
 
-verify: verify-skills verify-agents verify-steering
+verify: verify-skills verify-agents verify-rules
 
 test: $(VALIDATE_MODULE)
 	@$(VALIDATE_MODULE) $(CURDIR)
@@ -78,7 +78,7 @@ check:
 	@test -f defaults.yaml && echo "  ok defaults.yaml" || echo "  MISSING defaults.yaml"
 	@test -d skills && echo "  ok skills/" || echo "  MISSING skills/"
 	@test -d agents && echo "  ok agents/" || echo "  MISSING agents/"
-	@test -d steering && echo "  ok steering/" || echo "  MISSING steering/"
+	@test -d rules && echo "  ok rules/" || echo "  MISSING rules/"
 	@test -x "$(INSTALL_AGENTS)" && echo "  ok install-agents" || echo "  MISSING install-agents (run: make -C $(LIB_DIR) build)"
 	@test -x "$(INSTALL_SKILLS)" && echo "  ok install-skills" || echo "  MISSING install-skills (run: make -C $(LIB_DIR) build)"
 	@test -x "$(VALIDATE_MODULE)" && echo "  ok validate-module" || echo "  MISSING validate-module (run: make -C $(LIB_DIR) build)"

@@ -12,7 +12,7 @@ The user wants to see their progression through the forge-learn leveling system.
 
 ### Step 1: Read State
 
-Read `steering/Levels.md`. If the file doesn't exist, tell the user to run `make install` first. Count checked (`- [x]`) and unchecked (`- [ ]`) boxes per level. A level is **complete** when all 3 of its checkboxes are checked.
+Read `rules/Levels.md`. If the file doesn't exist, tell the user to run `make install` first. Count checked (`- [x]`) and unchecked (`- [ ]`) boxes per level. A level is **complete** when all 3 of its checkboxes are checked.
 
 Determine the user's **current level**: the lowest level with at least one unchecked box. If all boxes in all levels are checked, the user has completed the progression.
 
@@ -31,17 +31,17 @@ Then show the specific unchecked items for the current level.
 Based on the current level, suggest ONE specific action. Be opinionated — name a specific skill and a specific thing to try it on. Do not list options.
 
 **Level 1 suggestions** (rotate based on what's unchecked):
-- "Run `/Explain steering/Identity.md` — see how I break down what each section does."
+- "Run `/Explain rules/Identity.md` — see how I break down what each section does."
 - "Open `skills/Explain/SKILL.md` in your text editor — that's the instruction file I follow. Read through it."
 - "Change one line in `skills/Explain/SKILL.md` (e.g., the explanation style), re-run `/Explain`, and see the behavior change."
 
 **Level 2 suggestions:**
-- "Open `steering/Identity.md` in your text editor. Change the name to yours, save it. I'll know who you are next session."
-- "Now open `steering/Goals.md` and replace the example goals with what you're actually working on."
+- "Open `rules/Identity.md` in your text editor. Change the name to yours, save it. I'll know who you are next session."
+- "Now open `rules/Goals.md` and replace the example goals with what you're actually working on."
 - "Type `/Tour` — I'll greet you by name and show what you have."
 
 **Level 3 suggestions:**
-- "Try `/Explain steering/Identity.md` — you'll see how I read your files and what I understand from them."
+- "Try `/Explain rules/Identity.md` — you'll see how I read your files and what I understand from them."
 - "Type `/GitHelp save my progress` — I'll walk you through making your first save point."
 - "Type `/GitHelp what changed` — you'll see everything you've modified since your last save."
 
@@ -51,7 +51,7 @@ Based on the current level, suggest ONE specific action. Be opinionated — name
 - "Try `/Summarize` on your project's README — see how it distills the key points."
 
 **Level 5 suggestions:**
-- "Create a file called `steering/MyRules.md`. Write one rule — like 'always use British spelling' or 'never add code comments unless I ask.' Save it and test in your next session."
+- "Create a file called `rules/MyRules.md`. Write one rule — like 'always use British spelling' or 'never add code comments unless I ask.' Save it and test in your next session."
 - "Open `agents/CodeHelper.md` — that's a starter agent. A skill tells me what to do; an agent tells me who to be. Try editing it to match your style, or create a new agent for something you need."
 - "Look at any skill in `skills/` — open the SKILL.md file. The format is simple: YAML header with name + description, then markdown instructions. Try writing your own in `skills/MySkill/SKILL.md`."
 
@@ -71,7 +71,7 @@ If all boxes in the current level appear to be satisfied based on the conversati
 
 1. State the evidence: "You've [specific thing], [specific thing], and [specific thing]."
 2. Ask for confirmation: "Ready to mark Level N: [Name] as complete?"
-3. **Only after the user confirms**: Edit `steering/Levels.md` to check the three boxes for that level (change `- [ ]` to `- [x]`).
+3. **Only after the user confirms**: Edit `rules/Levels.md` to check the three boxes for that level (change `- [ ]` to `- [x]`).
 4. Celebrate briefly, then show what Level N+1 brings.
 
 **Never check boxes without user confirmation.** Never check boxes you cannot verify. If uncertain, ask.
@@ -81,4 +81,4 @@ If all boxes in the current level appear to be satisfied based on the conversati
 - **User at Level 1 with no history**: Welcome them. Suggest running /Explain on any file as the single best starting point.
 - **User skipped levels**: That's fine — levels are guidance, not gates. Acknowledge what they've done and offer to mark completed levels.
 - **All levels complete**: Congratulate them. "You've graduated. You can now build skills, agents, and modules — and contribute them back to forge-core. For the full framework with hooks, vault integration, and module dispatch, see [forge-user](https://github.com/N4M3Z/forge-user)."
-- **User asks to reset**: They can manually edit steering/Levels.md to uncheck boxes.
+- **User asks to reset**: They can manually edit rules/Levels.md to uncheck boxes.
