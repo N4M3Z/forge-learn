@@ -9,7 +9,7 @@ INSTALL_AGENTS  ?= $(LIB_DIR)/bin/install-agents
 INSTALL_SKILLS  ?= $(LIB_DIR)/bin/install-skills
 VALIDATE_MODULE ?= $(LIB_DIR)/bin/validate-module
 
-.PHONY: help install clean verify test lint check init check-lib init-rules verify-rules
+.PHONY: help install clean verify test lint lint-rules check init check-lib init-rules verify-rules
 
 help:
 	@echo "forge-learn management commands:"
@@ -71,7 +71,24 @@ verify: verify-skills verify-agents verify-rules
 test: $(VALIDATE_MODULE)
 	@$(VALIDATE_MODULE) $(CURDIR)
 
-lint: lint-schema lint-shell
+lint: lint-schema lint-shell lint-rules
+
+lint-rules:
+	@if ! command -v mdschema >/dev/null 2>&1; then \
+	  echo "  SKIP mdschema (not installed)"; \
+	else \
+	  if [ -f rules/.mdschema ]; then \
+	    echo "  rules (rules/.mdschema)"; \
+	    tmpdir=$$(mktemp -d) && \
+	    for f in rules/*.md.template; do \
+	      cp "$$f" "$$tmpdir/$$(basename "$${f%.template}")"; \
+	    done && \
+	    mdschema check "$$tmpdir/*.md" --schema rules/.mdschema; \
+	    status=$$?; \
+	    rm -rf "$$tmpdir"; \
+	    exit $$status; \
+	  fi; \
+	fi
 
 check:
 	@test -f module.yaml && echo "  ok module.yaml" || echo "  MISSING module.yaml"

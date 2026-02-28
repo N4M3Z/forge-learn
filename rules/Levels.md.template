@@ -70,6 +70,8 @@ A skill tells the AI what to do. An agent tells the AI who to be — a character
 - [ ] Edited the starter agent in `agents/` (change its persona, or create a new one for something you need)
 - [ ] Created your own skill in skills/ (a SKILL.md file — look at existing skills for the pattern)
 
+> **Tip**: Run `make lint` to validate your rule files. Look at `rules/.mdschema` to see how heading schemas work — you can write schemas for your own skills too.
+
 ---
 
 ## Level 6: Connect — Install forge-core and build artifacts

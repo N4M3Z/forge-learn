@@ -54,6 +54,7 @@ Based on the current level, suggest ONE specific action. Be opinionated — name
 - "Create a file called `rules/MyRules.md`. Write one rule — like 'always use British spelling' or 'never add code comments unless I ask.' Save it and test in your next session."
 - "Open `agents/CodeHelper.md` — that's a starter agent. A skill tells me what to do; an agent tells me who to be. Try editing it to match your style, or create a new agent for something you need."
 - "Look at any skill in `skills/` — open the SKILL.md file. The format is simple: YAML header with name + description, then markdown instructions. Try writing your own in `skills/MySkill/SKILL.md`."
+- "Run `make lint` — it validates your rules files against a heading schema. Open `rules/.mdschema` to see how schemas work."
 
 **Level 6 suggestions:**
 - "Start with forge-core — the developer toolkit: `git clone --recurse-submodules https://github.com/N4M3Z/forge-core.git modules/forge-core`. Then run `make install` inside it."
