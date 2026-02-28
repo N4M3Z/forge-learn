@@ -17,12 +17,10 @@ Before setup, verify the user has what they need:
    - Mac Homebrew: `brew install --cask claude-code`
    - Windows WinGet: `winget install Anthropic.ClaudeCode`
 
-3. **Build tooling** (needed on first install to build `forge-lib` binaries):
-   - Mac/Linux: ensure `make` and `cargo` are available.
-   - Windows: prefer WSL or Git Bash for `make` targets. If staying in PowerShell, use the fallback commands below.
-   - Windows install helpers:
-     - Rust: `winget install -e --id Rustlang.Rustup`
-     - Make: `winget install -e --id ezwinports.make`
+3. **Build tooling** (needed on first install to build forge-lib binaries):
+   - Rust: Mac/Linux `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh` / Windows `winget install -e --id Rustlang.Rustup`
+   - Verify: `cargo --version`
+   - `make` targets use POSIX shell syntax. On Windows, prefer WSL (Windows Subsystem for Linux) or Git Bash. If staying in PowerShell, skip `make` and use the fallback commands below.
 
 
 ## Build and Deploy
@@ -40,7 +38,7 @@ make verify                       # confirm everything deployed
 
 ### Windows PowerShell fallback
 
-Use this if `make install` fails due POSIX shell syntax (`if [ ... ]`, `for ...; do`, `ln -sf`, `mkdir -p`):
+Use this if `make install` fails due to POSIX shell syntax (`if [ ... ]`, `for ...; do`, `ln -sf`, `mkdir -p`):
 
 ```powershell
 git submodule update --init lib
@@ -105,5 +103,5 @@ If the user outgrows forge-learn (wants hooks, automated dispatching, Rust-power
 
 ## Platform Notes
 
-- **Windows**: Claude Code runs natively on Windows 10 (1809+). Requires [Git for Windows](https://git-scm.com/downloads/win) for shell operations. WSL 2 also works. If running from PowerShell, `make` targets may fail unless invoked through a POSIX shell; use the PowerShell fallback in this file.
+- **Windows**: Claude Code runs natively on Windows 10 (1809+). Requires [Git for Windows](https://git-scm.com/downloads/win) for shell operations. WSL (Windows Subsystem for Linux) 2 also works. If running from PowerShell, `make` targets may fail because they use Mac/Linux shell syntax; use the PowerShell fallback in this file.
 - **Other tools**: The steering files and CLAUDE.md are plain markdown — useful with any AI tool. [OpenCode](https://opencode.ai) reads CLAUDE.md as a fallback. For [Codex CLI](https://developers.openai.com/codex) (uses AGENTS.md) or [Gemini CLI](https://github.com/google-gemini/gemini-cli) (uses GEMINI.md), copy CLAUDE.md content into the tool's instruction file format. Skill slash commands only work in Claude Code.

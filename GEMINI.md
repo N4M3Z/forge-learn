@@ -22,7 +22,9 @@ make test             # validate-module convention checks
 make clean            # remove installed agents + skills
 ```
 
-Windows note: these `make` targets are POSIX-oriented. In PowerShell, use the fallback in `INSTALL.md` (`cargo build --release` and run `lib\\target\\release\\install-*.exe` directly), or run `make` from WSL/Git Bash.
+### Windows
+
+These commands use Mac/Linux shell syntax. See [INSTALL.md](INSTALL.md#windows-powershell-fallback) for PowerShell setup, or run `make` from WSL (Windows Subsystem for Linux) / Git Bash.
 
 ## Skills
 
@@ -60,7 +62,9 @@ git submodule add https://github.com/N4M3Z/forge-learn.git modules/forge-learn
 cd modules/forge-learn && make install SCOPE=workspace
 ```
 
-Windows PowerShell fallback: use `cargo build --release --manifest-path lib/Cargo.toml`, then run `lib\\target\\release\\install-agents.exe` and `lib\\target\\release\\install-skills.exe` directly (see root `INSTALL.md` for full command sequence).
+### Windows
+
+See [INSTALL.md](INSTALL.md#windows-powershell-fallback) for PowerShell setup.
 
 ### Makefile Integration
 
