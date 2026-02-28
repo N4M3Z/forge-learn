@@ -101,6 +101,16 @@ claude
 
 That's it. You're set up.
 
+### Optional: Make skills available everywhere
+
+By default, skills only work inside the `forge-learn` directory. To use `/Explain`, `/GitHelp`, and other skills in any project:
+
+```bash
+make install SCOPE=user
+```
+
+This installs skills globally so they're available whenever you run `claude`, regardless of which project you're in.
+
 ## Available Skills
 
 | Skill | What it does |
