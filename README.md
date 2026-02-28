@@ -22,7 +22,7 @@ The steering files (`steering/Identity.md`, `Goals.md`) and `CLAUDE.md` are plai
 |------|----------------|---------------------|---------|
 | [Claude Code](https://docs.anthropic.com/en/docs/claude-code) | Yes | Yes (full plugin support) | `curl -fsSL https://claude.ai/install.sh \| bash` |
 | [OpenCode](https://opencode.ai) | Yes (fallback) | Partial (`.claude/skills/`) | `curl -fsSL https://opencode.ai/install \| bash` |
-| [Codex CLI](https://github.com/openai/codex) | No (uses AGENTS.md) | No | See [Codex docs](https://developers.openai.com/codex) |
+| [Codex CLI](https://github.com/openai/codex) | No (uses AGENTS.md) | No (Uses $Skill "command" instead) | See [Codex docs](https://developers.openai.com/codex) |
 | [Gemini CLI](https://github.com/google-gemini/gemini-cli) | No (uses GEMINI.md) | No | See [Gemini CLI docs](https://github.com/google-gemini/gemini-cli) |
 | [GitHub Copilot](https://github.com/features/copilot) | No (uses .github/copilot-instructions.md) | No | Via IDE |
 
