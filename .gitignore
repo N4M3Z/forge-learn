@@ -15,6 +15,11 @@ node_modules/
 # User overrides
 config.yaml
 
+# Personal rules files (generated from templates by make install)
+rules/Identity.md
+rules/Goals.md
+rules/Levels.md
+
 # Build artifacts (forge-lib submodule)
 lib/target/
 

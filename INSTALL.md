@@ -77,11 +77,13 @@ Select-String -Path .codex\config.toml -Pattern '\[agents\.CodeHelper\]'
 
 If the user just cloned the repo and is starting for the first time:
 
-1. Check if `steering/Identity.md` still has placeholder values (`Your Name`, `beginner`, etc.). If so, ask the user for their name and preferences, then update the file for them.
+1. Run `make install` — this generates personal rules files from templates (if they don't already exist) and deploys agents and skills.
 
-2. Check if `steering/Goals.md` still has the example goals. If so, ask what they're working toward and update it.
+2. Check if `rules/Identity.md` still has placeholder values (`Your Name`, `beginner`, etc.). If so, ask the user for their name and preferences, then update the file for them.
 
-3. Run `/Tour` to introduce them to the setup.
+3. Check if `rules/Goals.md` still has the example goals. If so, ask what they're working toward and update it.
+
+4. Run `/Tour` to introduce them to the setup.
 
 ## Module Installation
 
@@ -112,4 +114,4 @@ If the user outgrows forge-learn (wants hooks, automated dispatching, Rust-power
 ## Platform Notes
 
 - **Windows**: Claude Code runs natively on Windows 10 (1809+). Requires [Git for Windows](https://git-scm.com/downloads/win) for shell operations. WSL 2 also works. If running from PowerShell, `make` targets may fail unless invoked through a POSIX shell; use the PowerShell fallback in this file.
-- **Other tools**: The steering files and CLAUDE.md are plain markdown — useful with any AI tool. [OpenCode](https://opencode.ai) reads CLAUDE.md as a fallback. For [Codex CLI](https://developers.openai.com/codex) (uses AGENTS.md) or [Gemini CLI](https://github.com/google-gemini/gemini-cli) (uses GEMINI.md), copy CLAUDE.md content into the tool's instruction file format. Skill slash commands only work in Claude Code.
+- **Other tools**: The rules files and CLAUDE.md are plain markdown — useful with any AI tool. [OpenCode](https://opencode.ai) reads CLAUDE.md as a fallback. For [Codex CLI](https://developers.openai.com/codex) (uses AGENTS.md) or [Gemini CLI](https://github.com/google-gemini/gemini-cli) (uses GEMINI.md), copy CLAUDE.md content into the tool's instruction file format. Skill slash commands only work in Claude Code.

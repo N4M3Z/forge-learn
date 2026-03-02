@@ -9,7 +9,7 @@ INSTALL_AGENTS  ?= $(LIB_DIR)/bin/install-agents
 INSTALL_SKILLS  ?= $(LIB_DIR)/bin/install-skills
 VALIDATE_MODULE ?= $(LIB_DIR)/bin/validate-module
 
-.PHONY: help install clean verify test lint check init check-lib
+.PHONY: help install clean verify test lint lint-rules check init check-lib init-rules verify-rules
 
 help:
 	@echo "forge-learn management commands:"
@@ -46,24 +46,56 @@ check-lib:
 	  exit 1; \
 	fi
 
-install: check-lib install-agents install-skills
+init-rules:
+	@for f in rules/*.md.template; do \
+	  target="$${f%.template}"; \
+	  if [ ! -f "$$target" ]; then \
+	    cp "$$f" "$$target"; \
+	    echo "  created $$target"; \
+	  fi; \
+	done
+
+install: check-lib init-rules install-agents install-skills
 	@echo "Installation complete (SCOPE=$(SCOPE)). Restart your session or reload agents/skills."
 
 clean: clean-agents clean-skills
 
-verify: verify-skills verify-agents
+verify-rules:
+	@test -f rules/Identity.md || (echo "  MISSING rules/Identity.md — run: make install" && exit 1)
+	@test -f rules/Goals.md    || (echo "  MISSING rules/Goals.md — run: make install"    && exit 1)
+	@test -f rules/Levels.md   || (echo "  MISSING rules/Levels.md — run: make install"   && exit 1)
+	@echo "  ok rules"
+
+verify: verify-skills verify-agents verify-rules
 
 test: $(VALIDATE_MODULE)
 	@$(VALIDATE_MODULE) $(CURDIR)
 
-lint: lint-schema lint-shell
+lint: lint-schema lint-shell lint-rules
+
+lint-rules:
+	@if ! command -v mdschema >/dev/null 2>&1; then \
+	  echo "  SKIP mdschema (not installed)"; \
+	else \
+	  if [ -f rules/.mdschema ]; then \
+	    echo "  rules (rules/.mdschema)"; \
+	    tmpdir=$$(mktemp -d) && \
+	    for f in rules/*.md.template; do \
+	      cp "$$f" "$$tmpdir/$$(basename "$${f%.template}")"; \
+	    done && \
+	    mdschema check "$$tmpdir/*.md" --schema rules/.mdschema; \
+	    status=$$?; \
+	    rm -rf "$$tmpdir"; \
+	    exit $$status; \
+	  fi; \
+	fi
 
 check:
 	@test -f module.yaml && echo "  ok module.yaml" || echo "  MISSING module.yaml"
 	@test -f defaults.yaml && echo "  ok defaults.yaml" || echo "  MISSING defaults.yaml"
 	@test -d skills && echo "  ok skills/" || echo "  MISSING skills/"
 	@test -d agents && echo "  ok agents/" || echo "  MISSING agents/"
-	@test -d steering && echo "  ok steering/" || echo "  MISSING steering/"
+	@test -d rules && echo "  ok rules/" || echo "  MISSING rules/"
 	@test -x "$(INSTALL_AGENTS)" && echo "  ok install-agents" || echo "  MISSING install-agents (run: make -C $(LIB_DIR) build)"
 	@test -x "$(INSTALL_SKILLS)" && echo "  ok install-skills" || echo "  MISSING install-skills (run: make -C $(LIB_DIR) build)"
 	@test -x "$(VALIDATE_MODULE)" && echo "  ok validate-module" || echo "  MISSING validate-module (run: make -C $(LIB_DIR) build)"

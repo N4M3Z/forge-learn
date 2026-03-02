@@ -21,7 +21,7 @@ Windows note: if `make` fails in PowerShell due POSIX shell syntax, use the Wind
 skills/                   7 skill directories (SKILL.md + SKILL.yaml each)
 agents/
   CodeHelper.md           Starter agent for code explanation (source)
-steering/
+rules/
   Identity.md             User identity (name, preferences, experience)
   Goals.md                User goals and priorities
   Levels.md               7-level progression roadmap

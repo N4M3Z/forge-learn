@@ -10,7 +10,7 @@ The user wants to do something with git but doesn't know the command, or they're
 
 ## Instructions
 
-1. Read `steering/Identity.md` to understand their experience level with git.
+1. Read `rules/Identity.md` to understand their experience level with git. If the file doesn't exist, tell the user to run `make install` first.
 
 2. If they describe what they want to do in plain English:
    - Translate it into the exact git command(s)

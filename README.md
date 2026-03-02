@@ -16,7 +16,7 @@ Everything here is a text file you can open, read, and edit. No magic, no hidden
 
 forge-learn is built for **[Claude Code](https://docs.anthropic.com/en/docs/claude-code)** — skills are auto-discovered and slash commands (`/Tour`, `/Explain`, etc.) work out of the box.
 
-The steering files (`steering/Identity.md`, `Goals.md`) and `CLAUDE.md` are plain markdown, so they're useful with other AI coding tools too — but skill discovery varies:
+The rules files (`rules/Identity.md`, `Goals.md`) and `CLAUDE.md` are plain markdown, so they're useful with other AI coding tools too — but skill discovery varies:
 
 | Tool | Reads CLAUDE.md | Skills as /commands | Install |
 |------|----------------|---------------------|---------|
@@ -31,13 +31,13 @@ For tools that don't read `CLAUDE.md`, you can copy the content into their instr
 ## What's Inside
 
 ```
-steering/      <- Who you are and what you care about
+rules/         <- Who you are and what you care about (templates checked in, personal copies gitignored)
 skills/        <- What your AI can do (commands you can run)
 agents/        <- AI personas (e.g., CodeHelper)
 modules/       <- Optional add-ons (empty for now)
 ```
 
-**Steering** is your identity. Open `steering/Identity.md`, change the name to yours, and save. Next session, your AI greets you by name.
+**Rules** is your identity. Run `make install` to generate your personal rules files from templates, then edit `rules/Identity.md` with your name. Next session, your AI greets you by name.
 
 **Skills** are actions. Type `/Tour` and your AI walks you through everything. Type `/Explain` and it breaks down any file or error in plain language.
 
@@ -91,11 +91,11 @@ claude
 
 **Or do it yourself:**
 
-1. Open `steering/Identity.md` in any text editor — change `Your Name` to your actual name and save
-2. Open `steering/Goals.md` — replace the example goals with yours
-3. Deploy agents and skills:
-   - Mac/Linux/WSL/Git Bash: run `make install`
+1. Deploy agents and skills:
+   - Mac/Linux/WSL/Git Bash: run `make install` — this generates your personal rules files from templates and deploys agents and skills
    - Windows PowerShell fallback: run the Windows block in [INSTALL.md](INSTALL.md) (`cargo build --release` + `install-*.exe`)
+2. Open `rules/Identity.md` in any text editor — change `Your Name` to your actual name and save
+3. Open `rules/Goals.md` — replace the example goals with yours
 4. Start Claude Code: `claude`
 5. Type `/Tour`
 
@@ -137,15 +137,15 @@ forge-learn has a 7-level progression from your first skill modification to ecos
 | 6 | Connect | Expand with optional modules |
 | 7 | Forge | Contribute improvements to the ecosystem |
 
-See `steering/Levels.md` for the full roadmap with progress tracking.
+See `rules/Levels.md` for the full roadmap with progress tracking. This file is generated from a template by `make install` — your progress is local and won't be pushed to git.
 
 ## How It Works
 
 Your AI tool reads the files in this directory at the start of every session:
 
 - `CLAUDE.md` tells it the ground rules
-- `steering/Identity.md` tells it who you are
-- `steering/Goals.md` tells it what you're working toward
+- `rules/Identity.md` tells it who you are
+- `rules/Goals.md` tells it what you're working toward
 - `skills/*/SKILL.md` gives it abilities you can invoke by name
 - `agents/*.md` gives it personas it can adopt (deployed by `make install` or Windows fallback commands in `INSTALL.md`)
 
@@ -153,7 +153,7 @@ You change a file, the AI's behavior changes. That's the entire system.
 
 ## Privacy Note
 
-The `steering/` files are yours to edit with personal information (your name, goals, preferences). If you plan to push this repository to a public GitHub account, be aware that anything you write in these files will be visible. Consider keeping your fork private, or review your steering files before pushing.
+Your personal rules files (`rules/Identity.md`, `Goals.md`, `Levels.md`) are gitignored by default — they won't be pushed to a public repository. Only the `.template` files (with placeholder values) are checked into git. If you add other files to `rules/` (like `MyRules.md`), review them before pushing.
 
 ## Want More?
 
