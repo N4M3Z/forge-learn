@@ -51,8 +51,7 @@ Platform directories (`.claude/`, `.gemini/`, `.codex/`, `.opencode/`) are gener
 
 ### Provider Routing
 
-`defaults.yaml` uses provider-keyed allowlists. All skills deploy to all
-providers.
+`defaults.yaml` uses provider-keyed allowlists.
 
 ## Agents
 
