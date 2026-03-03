@@ -42,7 +42,7 @@ Platform directories (`.claude/`, `.gemini/`, `.codex/`, `.opencode/`) are gener
 | Skill | Purpose |
 |-------|---------|
 | **Tour** | Walk through setup, directories, and available skills |
-| **Progress** | Show current level and suggest next steps (Claude only) |
+| **Progress** | Show current level and suggest next steps |
 | **Explain** | Explain any file, error, or concept in plain language |
 | **FixIt** | Diagnose problems and propose fixes |
 | **GitHelp** | Translate plain English into git commands |
@@ -51,8 +51,7 @@ Platform directories (`.claude/`, `.gemini/`, `.codex/`, `.opencode/`) are gener
 
 ### Provider Routing
 
-`defaults.yaml` uses provider-keyed allowlists. Most skills deploy to all
-providers. **Progress** is Claude-only (uses Claude Code progression features).
+`defaults.yaml` uses provider-keyed allowlists.
 
 ## Agents
 

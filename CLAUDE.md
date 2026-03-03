@@ -31,7 +31,7 @@ Skills are in `skills/*/SKILL.md`. Each skill is invoked by typing its name (e.g
 | Skill | What it does |
 |-------|-------------|
 | **Tour** | Walk through setup, directories, and available skills |
-| **Progress** | Show current level and suggest next steps (Claude only) |
+| **Progress** | Show current level and suggest next steps |
 | **Explain** | Explain any file, error, or concept in plain language |
 | **FixIt** | Diagnose problems and propose fixes |
 | **GitHelp** | Translate plain English into git commands |

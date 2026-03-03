@@ -29,13 +29,12 @@ Windows note: these `make` targets are POSIX-oriented. In PowerShell, use the fa
 | Skill | Responsibilities |
 |:------|:-----------------|
 | `Tour` | Setup walkthrough, directory explanation, getting started guidance |
+| `Progress` | Show current level, suggest next steps, and update level progression |
 | `Explain` | Plain language explanation of files, errors, and concepts |
 | `FixIt` | Problem diagnosis and fix proposals |
 | `GitHelp` | Plain English to git command translation |
 | `Kickstart` | Idea-to-plan conversion with starter files |
 | `Summarize` | Key point extraction into structured summaries |
-
-Note: `Progress` is Claude Code-only and not deployed to Gemini.
 
 ## Agents
 
