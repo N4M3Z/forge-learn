@@ -2,6 +2,19 @@
 
 > **This file is for AI agents.** The user's README tells them to point you here. When the user asks to set up forge-learn or troubleshoot their installation, follow these steps.
 
+## Manual Setup
+
+If you're setting up without AI assistance:
+
+```bash
+git submodule update --init lib         # init forge-lib (first time)
+make -C lib build                       # build deployment binaries (first time)
+make install                            # deploy skills + agents
+make verify                             # confirm everything works
+```
+
+Edit `rules/Identity.md` with your name and preferences. Edit `rules/Goals.md` with your actual goals. Then start your AI tool and type `/Tour`.
+
 ## Prerequisites Check
 
 Before setup, verify the user has what they need:
@@ -77,9 +90,9 @@ Select-String -Path .codex\config.toml -Pattern '\[agents\.CodeHelper\]'
 
 If the user just cloned the repo and is starting for the first time:
 
-1. Check if `steering/Identity.md` still has placeholder values (`Your Name`, `beginner`, etc.). If so, ask the user for their name and preferences, then update the file for them.
+1. Check if `rules/Identity.md` still has placeholder values (`Your Name`, `beginner`, etc.). If so, ask the user for their name and preferences, then update the file for them.
 
-2. Check if `steering/Goals.md` still has the example goals. If so, ask what they're working toward and update it.
+2. Check if `rules/Goals.md` still has the example goals. If so, ask what they're working toward and update it.
 
 3. Run `/Tour` to introduce them to the setup.
 
@@ -103,13 +116,12 @@ When the user wants to install a module from `modules/`:
 | [forge-text](https://github.com/N4M3Z/forge-text) | 12 text processing skills — translate, simplify, grammar fix, expand, condense, and more |
 | [forge-council](https://github.com/N4M3Z/forge-council) | Multi-specialist code review — convenes a panel of experts to debate changes |
 | [forge-avatar](https://github.com/N4M3Z/forge-avatar) | Deep identity — digital avatar, beliefs, strategies, communication preferences |
-| [forge-steering](https://github.com/N4M3Z/forge-steering) | Behavioral rules — teach your AI what to do and what to avoid |
 
 ## Upgrading to forge-user
 
-If the user outgrows forge-learn (wants hooks, automated dispatching, Rust-powered tools, multi-vault support), point them to [forge-user](https://github.com/N4M3Z/forge-user). Their steering files and skills are compatible — migration doesn't require starting over.
+If the user outgrows forge-learn (wants hooks, automated dispatching, Rust-powered tools, multi-vault support), point them to [forge-user](https://github.com/N4M3Z/forge-user). Their identity files and skills are compatible — migration doesn't require starting over.
 
 ## Platform Notes
 
 - **Windows**: Claude Code runs natively on Windows 10 (1809+). Requires [Git for Windows](https://git-scm.com/downloads/win) for shell operations. WSL 2 also works. If running from PowerShell, `make` targets may fail unless invoked through a POSIX shell; use the PowerShell fallback in this file.
-- **Other tools**: The steering files and CLAUDE.md are plain markdown — useful with any AI tool. [OpenCode](https://opencode.ai) reads CLAUDE.md as a fallback. For [Codex CLI](https://developers.openai.com/codex) (uses AGENTS.md) or [Gemini CLI](https://github.com/google-gemini/gemini-cli) (uses GEMINI.md), copy CLAUDE.md content into the tool's instruction file format. Skill slash commands only work in Claude Code.
+- **Other tools**: The identity files and CLAUDE.md are plain markdown — useful with any AI tool. [OpenCode](https://opencode.ai) reads CLAUDE.md as a fallback. For [Codex CLI](https://developers.openai.com/codex) (uses AGENTS.md) or [Gemini CLI](https://github.com/google-gemini/gemini-cli) (uses GEMINI.md), copy CLAUDE.md content into the tool's instruction file format. Skill slash commands only work in Claude Code.

@@ -1,13 +1,13 @@
-# Identity
-
-Tell your AI assistant who you are. Edit the fields below — they're read at the start of every session.
-
-```yaml
+---
 name: Your Name
 preferred_language: english
-experience_level: beginner
+experience_level:
 communication_style: friendly and clear
-```
+---
+
+# Identity
+
+Tell your AI assistant who you are. Edit the fields above — they're read at the start of every session.
 
 ## About Me
 

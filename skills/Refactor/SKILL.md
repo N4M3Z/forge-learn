@@ -10,7 +10,7 @@ The user has code that works but wants it improved. They may point to a file, a 
 
 ## Instructions
 
-1. Read `steering/Identity.md` to understand the user's experience level and preferences.
+1. Read `rules/Identity.md` to understand the user's experience level and preferences.
 
 2. Adjust your approach to match their level:
    - **beginner**: Name one clear improvement. Explain why it matters using an analogy.

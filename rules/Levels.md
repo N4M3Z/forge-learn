@@ -4,6 +4,8 @@ Your AI journey in seven steps. Each level introduces new capabilities. Type `/P
 
 All skills work at every level — the levels guide your learning, not restrict your access.
 
+Progress is self-tracked — check off tasks when you've done them. The system trusts you.
+
 ---
 
 ## Level 1: Discover — Run a skill, read its source, change one line
@@ -24,8 +26,8 @@ Edit your identity files so the AI adapts to you.
 
 **Skills**: /Tour, /Explain
 
-- [ ] Edited steering/Identity.md with your real name and preferences
-- [ ] Edited steering/Goals.md with your actual goals
+- [ ] Edited rules/Identity.md with your real name and preferences
+- [ ] Edited rules/Goals.md with your actual goals
 - [ ] Ran /Tour and received a personalized greeting
 
 ---
@@ -36,7 +38,7 @@ Use the AI to understand files and save your work with git.
 
 **Skills**: /GitHelp
 
-> **Privacy tip**: Your `steering/` files contain personal info (name, goals). If you push to a public repository, this becomes visible. Consider keeping your fork private or reviewing these files before pushing.
+> **Privacy tip**: Your `rules/` files contain personal info (name, goals). If you push to a public repository, this becomes visible. Consider keeping your fork private or reviewing these files before pushing.
 
 > **Tip**: Skills are installed per-project by default. To use `/Explain`, `/GitHelp`, and others in *any* project, install globally: `make install SCOPE=user`. Skills will then be available wherever you run Claude Code.
 
@@ -66,7 +68,7 @@ A skill tells the AI what to do. An agent tells the AI who to be — a character
 
 **Skills**: /Progress (to track your journey)
 
-- [ ] Created a custom rule file in steering/ (e.g., `steering/MyRules.md` with "always use British spelling")
+- [ ] Created a custom rule file in rules/ (e.g., `rules/MyRules.md` with "always use British spelling")
 - [ ] Edited the starter agent in `agents/` (change its persona, or create a new one for something you need)
 - [ ] Created your own skill in skills/ (a SKILL.md file — look at existing skills for the pattern)
 
@@ -78,7 +80,7 @@ forge-core is the developer toolkit — skills for building skills, agents, and 
 
 - [ ] Installed forge-core: `git clone --recurse-submodules https://github.com/N4M3Z/forge-core.git modules/forge-core`
 - [ ] Ran `make install` in forge-core and used `/BuildSkill` to scaffold a new skill
-- [ ] Installed a second module (try forge-text, forge-council, forge-avatar, or forge-steering)
+- [ ] Installed a second module (try forge-text, forge-council, or forge-avatar)
 
 ---
 

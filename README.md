@@ -4,6 +4,10 @@ Learn to customize your AI by editing text files.
 
 You edit a file. The AI reads it. That's all that happens.
 
+## Why Text Files?
+
+No build step — change a file, restart the session, done. Every instruction is git-diffable, inspectable without running anything, and works across AI tools (Claude Code, Gemini CLI, Codex, OpenCode). There is no framework to learn, no API to call, no schema to compile. The files are the system.
+
 ## What Is This?
 
 When you use an AI coding tool like [Claude Code](https://claude.ai/code), every conversation starts from scratch — the AI doesn't know your name, your preferences, or what you're working on. You repeat yourself every session.
@@ -16,7 +20,7 @@ Everything here is a text file you can open, read, and edit. No magic, no hidden
 
 forge-learn is built for **[Claude Code](https://docs.anthropic.com/en/docs/claude-code)** — skills are auto-discovered and slash commands (`/Tour`, `/Explain`, etc.) work out of the box.
 
-The steering files (`steering/Identity.md`, `Goals.md`) and `CLAUDE.md` are plain markdown, so they're useful with other AI coding tools too — but skill discovery varies:
+The identity files (`rules/Identity.md`, `Goals.md`) and `CLAUDE.md` are plain markdown, so they're useful with other AI coding tools too — but skill discovery varies:
 
 | Tool | Reads CLAUDE.md | Skills as /commands | Install |
 |------|----------------|---------------------|---------|
@@ -31,13 +35,12 @@ For tools that don't read `CLAUDE.md`, you can copy the content into their instr
 ## What's Inside
 
 ```
-steering/      <- Who you are and what you care about
+rules/      <- Who you are and what you care about
 skills/        <- What your AI can do (commands you can run)
 agents/        <- AI personas (e.g., CodeHelper)
-modules/       <- Optional add-ons (empty for now)
 ```
 
-**Steering** is your identity. Open `steering/Identity.md`, change the name to yours, and save. Next session, your AI greets you by name.
+**Steering** is your identity. Open `rules/Identity.md`, change the name to yours, and save. Next session, your AI greets you by name.
 
 **Skills** are actions. Type `/Tour` and your AI walks you through everything. Type `/Explain` and it breaks down any file or error in plain language.
 
@@ -91,8 +94,8 @@ claude
 
 **Or do it yourself:**
 
-1. Open `steering/Identity.md` in any text editor — change `Your Name` to your actual name and save
-2. Open `steering/Goals.md` — replace the example goals with yours
+1. Open `rules/Identity.md` in any text editor — change `Your Name` to your actual name and save
+2. Open `rules/Goals.md` — replace the example goals with yours
 3. Deploy agents and skills:
    - Mac/Linux/WSL/Git Bash: run `make install`
    - Windows PowerShell fallback: run the Windows block in [INSTALL.md](INSTALL.md) (`cargo build --release` + `install-*.exe`)
@@ -137,23 +140,26 @@ forge-learn has a 7-level progression from your first skill modification to ecos
 | 6 | Connect | Expand with optional modules |
 | 7 | Forge | Contribute improvements to the ecosystem |
 
-See `steering/Levels.md` for the full roadmap with progress tracking.
+See `rules/Levels.md` for the full roadmap with progress tracking.
 
 ## How It Works
 
-Your AI tool reads the files in this directory at the start of every session:
+When you start a session, your AI tool reads these files before you say anything:
 
-- `CLAUDE.md` tells it the ground rules
-- `steering/Identity.md` tells it who you are
-- `steering/Goals.md` tells it what you're working toward
-- `skills/*/SKILL.md` gives it abilities you can invoke by name
-- `agents/*.md` gives it personas it can adopt (deployed by `make install` or Windows fallback commands in `INSTALL.md`)
+1. `CLAUDE.md` — ground rules and conventions (read automatically by Claude Code)
+2. `rules/Identity.md` — your name, language, experience level (frontmatter parsed at session start)
+3. `rules/Goals.md` — what you're working toward
+4. Any other `.md` files in `rules/` — custom rules you add
 
-You change a file, the AI's behavior changes. That's the entire system.
+Skills (`skills/*/SKILL.md`) are registered as commands during plugin discovery. When you invoke a skill (e.g., `/Explain` in Claude Code, `$Explain` in Codex), the tool loads that skill's SKILL.md and follows its instructions. No runtime interpretation — the file IS the instruction.
+
+Agents (`agents/*.md`) are specialist personas deployed by `make install` into provider-specific directories.
+
+You change a file, the AI's behavior changes. There is no hidden layer between the file and the behavior.
 
 ## Privacy Note
 
-The `steering/` files are yours to edit with personal information (your name, goals, preferences). If you plan to push this repository to a public GitHub account, be aware that anything you write in these files will be visible. Consider keeping your fork private, or review your steering files before pushing.
+The `rules/` files are yours to edit with personal information (your name, goals, preferences). If you plan to push this repository to a public GitHub account, be aware that anything you write in these files will be visible. Consider keeping your fork private, or review your rules files before pushing.
 
 ## Want More?
 
@@ -164,9 +170,8 @@ Once you're comfortable, expand your setup with optional modules:
 | [forge-text](https://github.com/N4M3Z/forge-text) | 12 text processing skills — translate, simplify, grammar fix, expand, condense, and more |
 | [forge-council](https://github.com/N4M3Z/forge-council) | Multi-specialist code review — a panel of experts debates your changes |
 | [forge-avatar](https://github.com/N4M3Z/forge-avatar) | Deep identity — digital avatar, beliefs, strategies, communication preferences |
-| [forge-steering](https://github.com/N4M3Z/forge-steering) | Behavioral rules — teach your AI what to do and what to avoid |
 
-Clone a module into `modules/` and ask your AI to help set it up. For automated module management, see [forge-user](https://github.com/N4M3Z/forge-user).
+Clone a module and ask your AI to help set it up. For automated module management, see [forge-user](https://github.com/N4M3Z/forge-user).
 
 ## Requirements
 

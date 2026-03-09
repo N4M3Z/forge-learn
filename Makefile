@@ -46,12 +46,27 @@ check-lib:
 	  exit 1; \
 	fi
 
-install: check-lib install-agents install-skills
+install: init check-lib install-agents install-skills
 	@echo "Installation complete (SCOPE=$(SCOPE)). Restart your session or reload agents/skills."
 
 clean: clean-agents clean-skills
 
-verify: verify-skills verify-agents
+verify: verify-setup verify-skills verify-agents
+
+verify-setup:
+	@echo "Checking setup..."
+	@ok=0; fail=0; \
+	test -f .claude-plugin/plugin.json && { echo "  ok plugin.json"; ok=$$((ok+1)); } || { echo "  FAIL plugin.json"; fail=$$((fail+1)); }; \
+	test -f rules/Identity.md && { echo "  ok Identity.md"; ok=$$((ok+1)); } || { echo "  FAIL Identity.md"; fail=$$((fail+1)); }; \
+	test -f rules/Goals.md && { echo "  ok Goals.md"; ok=$$((ok+1)); } || { echo "  FAIL Goals.md"; fail=$$((fail+1)); }; \
+	test -f rules/Levels.md && { echo "  ok Levels.md"; ok=$$((ok+1)); } || { echo "  FAIL Levels.md"; fail=$$((fail+1)); }; \
+	grep -q '^name: ' rules/Identity.md && ! grep -q '^name: Your Name' rules/Identity.md && { echo "  ok identity personalized"; ok=$$((ok+1)); } || { echo "  WARN identity not personalized"; }; \
+	skills=$$(find skills -name SKILL.md -type f 2>/dev/null | wc -l | tr -d ' '); \
+	test "$$skills" -ge 7 && { echo "  ok $$skills skills found"; ok=$$((ok+1)); } || { echo "  FAIL only $$skills skills (expected 7+)"; fail=$$((fail+1)); }; \
+	test -f agents/CodeHelper.md && { echo "  ok CodeHelper agent"; ok=$$((ok+1)); } || { echo "  FAIL CodeHelper.md missing"; fail=$$((fail+1)); }; \
+	echo ""; \
+	echo "$$ok passed, $$fail failed"; \
+	test $$fail -eq 0
 
 test: $(VALIDATE_MODULE)
 	@$(VALIDATE_MODULE) $(CURDIR)
@@ -63,7 +78,7 @@ check:
 	@test -f defaults.yaml && echo "  ok defaults.yaml" || echo "  MISSING defaults.yaml"
 	@test -d skills && echo "  ok skills/" || echo "  MISSING skills/"
 	@test -d agents && echo "  ok agents/" || echo "  MISSING agents/"
-	@test -d steering && echo "  ok steering/" || echo "  MISSING steering/"
+	@test -d rules && echo "  ok rules/" || echo "  MISSING rules/"
 	@test -x "$(INSTALL_AGENTS)" && echo "  ok install-agents" || echo "  MISSING install-agents (run: make -C $(LIB_DIR) build)"
 	@test -x "$(INSTALL_SKILLS)" && echo "  ok install-skills" || echo "  MISSING install-skills (run: make -C $(LIB_DIR) build)"
 	@test -x "$(VALIDATE_MODULE)" && echo "  ok validate-module" || echo "  MISSING validate-module (run: make -C $(LIB_DIR) build)"

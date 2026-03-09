@@ -10,7 +10,7 @@ The user wants to do something with git but doesn't know the command, or they're
 
 ## Instructions
 
-1. Read `steering/Identity.md` to understand their experience level with git.
+1. Read `rules/Identity.md` to understand their experience level with git.
 
 2. If they describe what they want to do in plain English:
    - Translate it into the exact git command(s)

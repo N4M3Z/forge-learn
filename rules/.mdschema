@@ -1,0 +1,10 @@
+frontmatter:
+    fields:
+        - name: name
+        - name: preferred_language
+        - name: experience_level
+        - name: communication_style
+
+heading_rules:
+    no_skip_levels: true
+    max_depth: 2
