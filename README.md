@@ -170,6 +170,7 @@ Once you're comfortable, expand your setup with optional modules:
 | [forge-text](https://github.com/N4M3Z/forge-text) | 12 text processing skills — translate, simplify, grammar fix, expand, condense, and more |
 | [forge-council](https://github.com/N4M3Z/forge-council) | Multi-specialist code review — a panel of experts debates your changes |
 | [forge-avatar](https://github.com/N4M3Z/forge-avatar) | Deep identity — digital avatar, beliefs, strategies, communication preferences |
+| [forge-core](https://github.com/N4M3Z/forge-core) | Developer toolkit — build your own skills, agents, and modules |
 
 Clone a module and ask your AI to help set it up. For automated module management, see [forge-user](https://github.com/N4M3Z/forge-user).
 
